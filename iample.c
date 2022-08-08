@@ -1,5 +1,5 @@
 //https://github.com/the-cat1/iample
-//版本:        1.0.0
+//版本:        1.0.1
 //项目更新时间: 2022年8月7日 19点53分
 //编译环境:     tcc version 0.9.27 (x86_64 Windows)
 
@@ -63,6 +63,16 @@ int main(int argc, char const *argv[])
             if (regPos > 0){
                 regPos--;
             }
+            break;
+
+        case '{':
+            //把当前寄存器的数值复制到第一个特殊寄存器
+            _Register[REGISTER_LEN - 2] = _Register[regPos];
+            break;
+
+        case '}':
+            //把当前寄存器的数值复制到第二个特殊寄存器
+            _Register[REGISTER_LEN - 1] = _Register[regPos];
             break;
         
         /************跳转************/
